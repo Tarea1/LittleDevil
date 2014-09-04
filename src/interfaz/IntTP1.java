@@ -6,18 +6,46 @@
 
 package interfaz;
 
-import javax.swing.JFileChooser;//Librería para la selección de la imagen
+import interfaz.IntTP1.LD.Reproductor;
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JCheckBox;//Librería para la selección de la imagen
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
-public class IntTP1 extends javax.swing.JFrame {
+import javazoom.jlgui.basicplayer.BasicController;
+import javazoom.jlgui.basicplayer.BasicPlayer;
+import javazoom.jlgui.basicplayer.BasicPlayerEvent;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
+import javazoom.jlgui.basicplayer.BasicPlayerListener;
+import org.farng.mp3.MP3File;
+import org.farng.mp3.TagException;
+import org.farng.mp3.id3.AbstractID3v2;
+import org.tritonus.share.sampled.file.TAudioFileFormat;
+
+
+public class IntTP1 extends javax.swing.JFrame {//Clase principal
     
-    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de cancion","MP3");
+    LD reproducir;//Creamos el objeto que va a reproducir
+    
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de cancion","MP3");//ceamos un objeto de tipo FileNameExtensionFilter
     String rutacancion;//creamos la variable rutacancion
     
     
-    public IntTP1() {
+    public IntTP1() throws BasicPlayerException {//constructor crea un nueov objeto LD 
+        this.reproducir = new LD();
+        
+        
         initComponents();
         rutacancion="";
     }
+   
 
     
     @SuppressWarnings("unchecked")
@@ -32,6 +60,11 @@ public class IntTP1 extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jDialog1 = new javax.swing.JDialog();
         jFileChooser1 = new javax.swing.JFileChooser();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jFrame2 = new javax.swing.JFrame();
+        jFrame3 = new javax.swing.JFrame();
+        jFrame4 = new javax.swing.JFrame();
+        jFrame5 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         BotonAnterior = new javax.swing.JButton();
         BotonReproducir = new javax.swing.JButton();
@@ -44,24 +77,27 @@ public class IntTP1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        BuscarCancion = new javax.swing.JCheckBox();
-        BuscarGenero = new javax.swing.JCheckBox();
-        BuscarAlbum = new javax.swing.JCheckBox();
-        BuscarArtista = new javax.swing.JCheckBox();
-        BusquedaAvanzada = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        ListaCanciones = new javax.swing.JList();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        ListaAlbum = new javax.swing.JList();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        ListaDuracion = new javax.swing.JList();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        ListaGenero = new javax.swing.JList();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        ListaArtistas = new javax.swing.JList();
         BotonAgregar = new javax.swing.JButton();
         BotonEliminar = new javax.swing.JButton();
+        BotonModificar = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        TxtArtista = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        TxtAlbum = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        TxtCancion = new javax.swing.JTextArea();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        TxtGenero = new javax.swing.JTextArea();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        TxtDuracion = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        BuscarCancion = new javax.swing.JCheckBox();
+        BuscarArtista = new javax.swing.JCheckBox();
+        BuscarAlbum = new javax.swing.JCheckBox();
+        BuscarGenero = new javax.swing.JCheckBox();
+        BotonActualizar = new javax.swing.JButton();
+        BusquedaAvanzada = new javax.swing.JTextField();
 
         jTextArea1.setBackground(new java.awt.Color(0, 102, 153));
         jTextArea1.setColumns(20);
@@ -100,21 +136,97 @@ public class IntTP1 extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame3Layout = new javax.swing.GroupLayout(jFrame3.getContentPane());
+        jFrame3.getContentPane().setLayout(jFrame3Layout);
+        jFrame3Layout.setHorizontalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame3Layout.setVerticalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame4Layout = new javax.swing.GroupLayout(jFrame4.getContentPane());
+        jFrame4.getContentPane().setLayout(jFrame4Layout);
+        jFrame4Layout.setHorizontalGroup(
+            jFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame4Layout.setVerticalGroup(
+            jFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame5Layout = new javax.swing.GroupLayout(jFrame5.getContentPane());
+        jFrame5.getContentPane().setLayout(jFrame5Layout);
+        jFrame5Layout.setHorizontalGroup(
+            jFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame5Layout.setVerticalGroup(
+            jFrame5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Little Devil\n");
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setForeground(new java.awt.Color(0, 153, 153));
 
-        BotonAnterior.setText("Anterior");
+        BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/anterior.png"))); // NOI18N
+        BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAnteriorActionPerformed(evt);
+            }
+        });
 
-        BotonReproducir.setText("Reproducir");
+        BotonReproducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/diablo.gif"))); // NOI18N
+        BotonReproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonReproducirActionPerformed(evt);
+            }
+        });
 
-        BotonSiguiente.setText("Siguiente");
+        BotonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/sig2.jpg"))); // NOI18N
+        BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSiguienteActionPerformed(evt);
+            }
+        });
 
-        BotonDetener.setText("Detener");
+        BotonDetener.setText("Volver inicio");
+        BotonDetener.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonDetenerActionPerformed(evt);
+            }
+        });
 
-        BotonPausar.setText("Pausar");
+        BotonPausar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/detener.jpg"))); // NOI18N
+        BotonPausar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPausarActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 153));
 
@@ -133,121 +245,130 @@ public class IntTP1 extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
         jLabel5.setText("Duración");
 
-        jLabel6.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
-        jLabel6.setText("Buscar");
-
-        BuscarCancion.setBackground(new java.awt.Color(0, 102, 153));
-        BuscarCancion.setText("Canción");
-
-        BuscarGenero.setBackground(new java.awt.Color(0, 102, 153));
-        BuscarGenero.setText("Género");
-
-        BuscarAlbum.setBackground(new java.awt.Color(0, 102, 153));
-        BuscarAlbum.setText("Álbum");
-
-        BuscarArtista.setBackground(new java.awt.Color(0, 102, 153));
-        BuscarArtista.setText("Artista");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146)
+                .addGap(170, 170, 170)
                 .addComponent(jLabel2)
-                .addGap(150, 150, 150)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addGap(185, 185, 185)
                 .addComponent(jLabel4)
-                .addGap(101, 101, 101)
+                .addGap(206, 206, 206)
                 .addComponent(jLabel5)
-                .addGap(79, 79, 79)
-                .addComponent(BuscarCancion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BuscarArtista)
-                .addGap(18, 18, 18)
-                .addComponent(BuscarAlbum)
-                .addGap(10, 10, 10)
-                .addComponent(BuscarGenero)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(226, 226, 226))))
+                .addGap(186, 186, 186))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BuscarArtista)
-                        .addComponent(BuscarAlbum)
-                        .addComponent(BuscarGenero)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel4))
-                    .addComponent(BuscarCancion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        ListaCanciones.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(ListaCanciones);
-
-        ListaAlbum.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(ListaAlbum);
-
-        ListaDuracion.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane5.setViewportView(ListaDuracion);
-
-        ListaGenero.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane6.setViewportView(ListaGenero);
-
-        ListaArtistas.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane7.setViewportView(ListaArtistas);
-
-        BotonAgregar.setText("Agregar");
+        BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/agregar.jpg"))); // NOI18N
         BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregarActionPerformed(evt);
             }
         });
 
-        BotonEliminar.setText("Eliminar");
+        BotonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/borrar.jpg"))); // NOI18N
+        BotonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarActionPerformed(evt);
+            }
+        });
+
+        BotonModificar.setText("Modificar");
+        BotonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonModificarActionPerformed(evt);
+            }
+        });
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        TxtArtista.setEditable(false);
+        TxtArtista.setColumns(20);
+        TxtArtista.setLineWrap(true);
+        TxtArtista.setRows(5);
+        jScrollPane8.setViewportView(TxtArtista);
+
+        TxtAlbum.setEditable(false);
+        TxtAlbum.setColumns(20);
+        TxtAlbum.setLineWrap(true);
+        TxtAlbum.setRows(5);
+        jScrollPane9.setViewportView(TxtAlbum);
+
+        TxtCancion.setEditable(false);
+        TxtCancion.setColumns(20);
+        TxtCancion.setLineWrap(true);
+        TxtCancion.setRows(5);
+        jScrollPane10.setViewportView(TxtCancion);
+
+        TxtGenero.setEditable(false);
+        TxtGenero.setColumns(20);
+        TxtGenero.setLineWrap(true);
+        TxtGenero.setRows(5);
+        jScrollPane11.setViewportView(TxtGenero);
+
+        TxtDuracion.setEditable(false);
+        TxtDuracion.setColumns(20);
+        TxtDuracion.setLineWrap(true);
+        TxtDuracion.setRows(5);
+        jScrollPane12.setViewportView(TxtDuracion);
+
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel6.setText("Buscar");
+
+        BuscarCancion.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarCancion.setText("Canción");
+        BuscarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarCancionActionPerformed(evt);
+            }
+        });
+
+        BuscarArtista.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarArtista.setText("Artista");
+        BuscarArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarArtistaActionPerformed(evt);
+            }
+        });
+
+        BuscarAlbum.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarAlbum.setText("Álbum");
+
+        BuscarGenero.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarGenero.setText("Género");
+
+        BotonActualizar.setText("Actualizar");
+        BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarActionPerformed(evt);
+            }
+        });
+
+        BusquedaAvanzada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BusquedaAvanzadaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -255,59 +376,94 @@ public class IntTP1 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BotonAgregar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotonAnterior)
-                                .addGap(18, 18, 18)
-                                .addComponent(BotonReproducir)
-                                .addGap(27, 27, 27)
-                                .addComponent(BotonSiguiente)
-                                .addGap(18, 18, 18)
-                                .addComponent(BotonDetener)
-                                .addGap(18, 18, 18)
-                                .addComponent(BotonPausar))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonEliminar))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(734, Short.MAX_VALUE))
+                        .addComponent(BotonModificar)
+                        .addGap(8, 8, 8)
+                        .addComponent(BotonDetener)
+                        .addGap(8, 8, 8)
+                        .addComponent(BotonActualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonPausar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(BotonAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonReproducir)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BuscarCancion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BuscarArtista)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BuscarAlbum)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BuscarGenero)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 46, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonAnterior)
-                    .addComponent(BotonReproducir)
-                    .addComponent(BotonSiguiente)
-                    .addComponent(BotonDetener)
-                    .addComponent(BotonPausar)
-                    .addComponent(BotonAgregar)
-                    .addComponent(BotonEliminar))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BuscarCancion)
+                            .addComponent(BuscarArtista)
+                            .addComponent(BuscarAlbum)
+                            .addComponent(BuscarGenero)
+                            .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BotonReproducir)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(BotonModificar)
+                                .addComponent(BotonDetener)
+                                .addComponent(BotonActualizar))
+                            .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonPausar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonSiguiente)
+                            .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10)
+                    .addComponent(jScrollPane9)
+                    .addComponent(jScrollPane11)
+                    .addComponent(jScrollPane12))
                 .addContainerGap())
         );
 
@@ -339,16 +495,129 @@ public class IntTP1 extends javax.swing.JFrame {
             //Obtener la direccion donde se guardara la cancion
             String archivo = dlg.getSelectedFile().toString();
             
-            
+            try {
+                reproducir.insertarUltimo(archivo);//este metodo es de la clase Nodo, agrega la canción al último lugra, el parametro archivo se refiere a la canción
+            } catch (IOException ex) {
+                Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (TagException ex) {
+                Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
         
         
     }//GEN-LAST:event_BotonAgregarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void BotonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnteriorActionPerformed
+        try {
+            reproducir.reproducirAnterior();//Al objeto que se habia creado para reproducir le aplicamos el metodo de reproducriAnterior el cual busca el elem que estaba antes
+        } catch (BasicPlayerException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BotonAnteriorActionPerformed
+
+    private void BotonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarActionPerformed
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_BotonModificarActionPerformed
+
+    private void BuscarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCancionActionPerformed
+    }//GEN-LAST:event_BuscarCancionActionPerformed
+
+    private void BuscarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarArtistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarArtistaActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void BotonReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReproducirActionPerformed
+        //este boton es el encargado de reproducir en la interfaz
+        
+        try {
+            reproducir.reproducir();//esto permite darle click al botón de reproducir y que nos reproduzca
+        } catch (BasicPlayerException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_BotonReproducirActionPerformed
+
+    private void BotonDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDetenerActionPerformed
+        reproducir.detener();//esta es una llamada a un metodo el cual detiene la cancion
+    }//GEN-LAST:event_BotonDetenerActionPerformed
+
+    private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonEliminarActionPerformed
+
+    private void BotonPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausarActionPerformed
+        try {
+            reproducir.pausa();//esta es una llamada a un metodo el cual pausa
+        } catch (BasicPlayerException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BotonPausarActionPerformed
+
+    private void BotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSiguienteActionPerformed
+        
+        try {
+            reproducir.reproducirSiguente();//llama a un metodo que va a reproducir la siguiente cancion
+        } catch (BasicPlayerException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BotonSiguienteActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void BusquedaAvanzadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaAvanzadaActionPerformed
+        
+    }//GEN-LAST:event_BusquedaAvanzadaActionPerformed
+
+    private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
+        // TODO add your handling code here:
+        String nombre = "";
+        String artista="";
+        String genero="";
+        String album="";
+        String duracion="";
+            reproducir.reco = reproducir.raiz;
+            for(int i = 0 ; i < reproducir.cantidad(); ++i){
+            try {
+                nombre = nombre + reproducir.retornar(4, reproducir.reco)+"\n";
+                artista = artista + reproducir.retornar(2, reproducir.reco)+"\n";
+                album = album + reproducir.retornar(1, reproducir.reco)+"\n";
+                genero = genero + reproducir.retornar(3, reproducir.reco)+"\n";
+                duracion = duracion + reproducir.retornar(5, reproducir.reco)+"\n";
+                reproducir.reco=reproducir.reco.sig;
+            } catch (IOException ex) {
+                Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (TagException ex) {
+                Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            TxtCancion.setText(nombre);
+            TxtArtista.setText(artista);
+            TxtAlbum.setText(album);
+            TxtGenero.setText(genero);
+            TxtDuracion.setText(duracion);
+    }//GEN-LAST:event_BotonActualizarActionPerformed
+
+    }
+    public static void main(String args[]) {//es el main
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -375,16 +644,22 @@ public class IntTP1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntTP1().setVisible(true);
+                try {
+                    new IntTP1().setVisible(true);//esta parte del main hace visible la ventana
+                } catch (BasicPlayerException ex) {
+                    Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar;
     private javax.swing.JButton BotonAnterior;
     private javax.swing.JButton BotonDetener;
     private javax.swing.JButton BotonEliminar;
+    private javax.swing.JButton BotonModificar;
     private javax.swing.JButton BotonPausar;
     private javax.swing.JButton BotonReproducir;
     private javax.swing.JButton BotonSiguiente;
@@ -393,14 +668,19 @@ public class IntTP1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox BuscarCancion;
     private javax.swing.JCheckBox BuscarGenero;
     private javax.swing.JTextField BusquedaAvanzada;
-    private javax.swing.JList ListaAlbum;
-    private javax.swing.JList ListaArtistas;
-    private javax.swing.JList ListaCanciones;
-    private javax.swing.JList ListaDuracion;
-    private javax.swing.JList ListaGenero;
+    private javax.swing.JTextArea TxtAlbum;
+    private javax.swing.JTextArea TxtArtista;
+    private javax.swing.JTextArea TxtCancion;
+    private javax.swing.JTextArea TxtDuracion;
+    private javax.swing.JTextArea TxtGenero;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
+    private javax.swing.JFrame jFrame3;
+    private javax.swing.JFrame jFrame4;
+    private javax.swing.JFrame jFrame5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -411,13 +691,415 @@ public class IntTP1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+public class LD//Creamos la clase LD
+{
+    public class Metadatos {//dentro creamos la clase metadatos
+
+        AbstractID3v2 id3;
+        String artist;//Inicia la variable artist
+        String song;//Inicia la variable song
+        String album;//Inicia la variable album
+        String genre;//Inicia la variable genre
+        int duration;//Inicia la variable duration
+        int songSize;//Inicia la variable songSize
+
+        public void Metadatos(String ruta) throws IOException, TagException { //Constructor de la clase Metadatos
+       
+            MP3File mp3 = new MP3File(ruta); //Crea un nuevo objeto llamando una clase de la libreria
+            id3 = mp3.getID3v2Tag(); //Usa el ojeto creado para obener los metadatos de la cancionn dada en la ruta
+//            Metadatos d = new Metadatos();//Crea un nuevo objeto de la clase Metadatos
+ //           d.Metadatos(id3); //Inicia el constructor de la clase Metadatos con el objeto creado anteriormene            
+        }
+
+        public String getArtist() { //Metodo para obtener el artista de la cancion
+            this.artist = id3.getLeadArtist();
+            return this.artist; //Imprime el artista de la cancion
+        }
+
+        public String getSong() { //Metodo para obtener el nombre de la cancion
+            this.song = id3.getSongTitle();
+            return song; //Imprime el nombre de la cancion
+        }
+
+        public String getAlbum() { //Meodo para obtener el Ã¡lbum de la cancion
+            this.album = id3.getAlbumTitle();
+            return album; //Imprime el Allbum de la cancion
+        }
+
+        public String getGenre() { //Metodo para obtener el genero de la cancion
+            this.genre = id3.getSongGenre();
+            return genre; //Imprime el genero de la cancion
+        }
+
+        
+        private String getDuration(String dato) throws UnsupportedAudioFileException, IOException {//No s da la duración de la canción
+            File file = new File(dato);//para ello se necesita un nuevo archivo tipo File en donde se almacena el dato
+            AudioFileFormat fileFormat = AudioSystem.getAudioFileFormat(file);
+            if (fileFormat instanceof TAudioFileFormat) {
+                Map<?, ?> properties = ((TAudioFileFormat) fileFormat).properties();
+                String key = "duration";
+                Long microseconds = (Long) properties.get(key);
+                int mili = (int) (microseconds / 1000);
+                int sec = (mili / 1000) % 60;
+                int min = (mili / 1000) / 60;
+                return min + ":" + sec;
+            } else {
+                throw new UnsupportedAudioFileException();
+            }
+
+        }
+
+        public void setArtist(String artista) { //MÃ©todo para modificar el artista de la canciÃ³n
+            id3.setLeadArtist(artista);
+        }
+
+        public void setSong(String songTitle) { //MÃ©todo para modificar el nombre de la canciÃ³n
+            id3.setSongTitle(songTitle);
+        }
+
+        public void setAlbum(String songAlbum) { //MÃ©todo para modificar el Ã¡lbum de la canciÃ³n
+            id3.setAlbumTitle(songAlbum);
+        }
+
+        public void setGenge(String songGenre) { //MÃ©todo para modificar el gÃ©nero de la canciÃ³n
+            id3.setSongGenre(songGenre);
+        }
+    }
+    public abstract class Reproductor implements BasicPlayerListener 
+{
+    private final BasicPlayer basicPlayer;
+    private double bytesLength;
+
+    /**
+     *
+     */
+    public Reproductor() throws BasicPlayerException //constructor
+    {
+        basicPlayer = new BasicPlayer();//crea un objeto tipo BasicPlayer
+            basicPlayer.addBasicPlayerListener((BasicPlayerListener) this);//Se agrega 
+        basicPlayer.play();//reproduce
+    }
+
+    public void play() //crea metodo play
+    {
+        try {
+        basicPlayer.play();//al objeto creado anteriormente le aplica esta opción
+        }
+        catch (BasicPlayerException e) 
+        {
+        }
+    }
+
+    public void stop() //crea metodo stop
+    {
+        try 
+        {
+            basicPlayer.stop();//al objeto creado anteriormente le aplica esta opción
+        } 
+        catch (BasicPlayerException e) 
+        {
+        }
+    }
+
+    public void pause() throws BasicPlayerException //crea metodo pausa
+    {
+        basicPlayer.pause();//al objeto creado anteriormente le aplica esta opción
+    }
+
+    public void resume() throws BasicPlayerException //crea metodo resume
+    {
+        basicPlayer.resume();//al objeto creado anteriormente le aplica esta opción
+    }
+
+    public void loadFile(String ruta) throws BasicPlayerException //este metodo sirve para abrir la cancion que reproducimos
+    {
+        basicPlayer.open(new File(ruta));//al objeto creado anteriormente le aplica esta opción
+    }
+
+
+
+    public void opened(Object arg0, Map arg1) 
+    {
+        if (arg1.containsKey("audio.length.bytes")) 
+        {
+            bytesLength = Double.parseDouble(arg1.get("audio.length.bytes").toString());
+        }
+    }
+
+
+
+    public void progress(int bytesread, long microseconds, byte[] pcmdata,Map properties) 
+    {
+        float progressUpdate = (float) (bytesread * 1.0f / bytesLength * 1.0f);
+        int progressNow = (int) (bytesLength * progressUpdate);
+        // Descomentando la siguiente lÃ­nea se mosrtarÃ­a el progreso
+        // System.out.println(" -> " + progressNow);
+    }
+
+    public void setController(BasicController arg0) 
+    {
+        // TODO Auto-generated method stub
+
+    }
+
+
+    public void stateUpdated(BasicPlayerEvent arg0) 
+    {
+        // TODO Auto-generated method stub
+
+    }
+    }
+
+    class Nodo //clase nodo
+    {
+        String info;//inicia la variable info
+        Nodo ant,sig;//crea ant y sig qe son varables del Nodo
+    }
+    
+    int conta = 0;//variable para boton de reproduccion
+    Metadatos metda;//inicia la variable de tipo metadatos
+    Reproductor repro;//inicia la variable de tipo Reproductor
+    private Nodo raiz;//inicia la variable Raiz
+    private Nodo actual;//Inicia la variable actual
+    private Nodo reco;
+    
+    public LD ()throws BasicPlayerException//nuevo constructor
+    {
+        this.metda = new Metadatos (); //inicia con esta variables
+        this.repro = new Reproductor() {};//inicia con esta variable
+        raiz=null;//raiz es null
+        actual=raiz;//actual sera igual a raiz
+    }
+    
+            
+    
+    public void insertarUltimo(String cancion) throws IOException, TagException, UnsupportedAudioFileException {//Este metodo agrega al final de la lista de canciones
+        Nodo nuevo=new Nodo();//creamos un nuevo Nodo para manejar las canciones
+        nuevo.info=cancion;//info es igual a la cancion
+        if (raiz==null) {//si raiz es nulo
+            nuevo.sig=nuevo;//nuevo.sig lo sustituye por nuevo
+            nuevo.ant=nuevo;  //al anterior le asigna le nuevo tambien          
+            raiz=nuevo;//raiz pasa a ser nuevo
+            actual=raiz;//actual se convierte en raiz
+            imprimir(1);//////////////////////////////////////////////////////////////////////////////////
+            imprimir(2);//                                                                               //
+            imprimir(3);//aqui dependiendo del indice imprime el nombre del artista, cancion, album, etc.//
+            imprimir(4);///////////////////////////////////////////////////////////////////////////////////
+        } else {//si raiz no es nulo
+            Nodo ultimo=raiz.ant;//al ultimo nodo el asigna raiz.ant
+            nuevo.sig=raiz;//nuevo.sig le agrego raiz
+            nuevo.ant=ultimo;//y al anterior ultimo
+            raiz.ant=nuevo;//a raiz.ant le agrgo nuevo
+            ultimo.sig=nuevo;//Al ultimo elemnto le agrego nuevo
+            imprimir(1);///////////////////////////////777///////////////////////////////////////////////////
+            imprimir(2);//                              
+            imprimir(3);// aqui dependiendo del indice imprime el nombre del artista, cancion, album, etc                         /
+            imprimir(4);/////////////////////////////////
+        }
+    }    
+    
+    public boolean vacia ()//revisa si hay una canción ingresada o no hay ninguna
+    {
+        if (this.raiz == null)//pregunta si la raiz es igual a null
+            return true;//devuelve true
+        else//si no
+            return false;//devuelve false
+    }
+    
+    public void imprimir (int e) throws IOException, TagException, UnsupportedAudioFileException
+    {
+        if (!vacia()) 
+        {
+            int i=1;
+            Nodo reco=this.raiz;
+            do {
+                String dato = reco.info;
+                this.metda.Metadatos(dato);
+                switch(e){
+                    case 1:
+                metda.getAlbum();
+                break;
+                    case 2:
+                metda.getArtist();
+                break;
+                    case 3:
+                metda.getGenre();
+                break;
+                    case 4:
+                metda.getSong();
+                break;
+                    case 5:
+                metda.getDuration(dato);
+                break;
+                }
+                reco = reco.sig;
+                ++i;
+            } while (reco!=this.raiz);
+            System.out.println();
+        }    
+    }
+public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFileException, TagException{
+    if (!vacia()) 
+        {
+                String dato = reco.info;
+                this.metda.Metadatos(dato);
+                switch(e){
+                    case 1:
+                return metda.getAlbum();
+                    case 2:
+                return metda.getArtist();
+                    case 3:
+                return metda.getGenre();
+                    case 4:    
+                return metda.getSong();
+                    case 5:
+                return metda.getDuration(dato);
+                }
+        }   
+        return null;
+    }
+    public void siguiente()
+    {
+        if (this.actual==null)
+        {
+            this.actual= this.raiz;
+            this.actual= this.actual.sig;
+        } 
+        else
+        {
+            this.actual= this.actual.sig;
+        }
+    }
+    
+        public void anterior()
+    {
+        if (this.actual==null)
+        {
+            this.actual= this.raiz;
+            this.actual= this.actual.ant;
+        } 
+        else
+        {
+            this.actual= this.actual.ant;
+        }
+    }
+    
+    public int cantidad ()
+    {
+        int cant = 0;
+        if (!vacia()) {
+            Nodo reco=this.raiz;
+            do {
+                cant++;
+                reco = reco.sig;                
+            } while (reco!=this.raiz);
+        }    
+        return cant;
+    }
+    
+    public void borrar (int pos) throws IOException, TagException, UnsupportedAudioFileException
+    {
+        if (pos <= cantidad ())    {
+            if (pos == 1) {
+                if (cantidad()==1) {
+                    raiz=null;
+                    this.actual=raiz;
+                    imprimir(1);
+                    imprimir(2);
+                    imprimir(3);
+                    imprimir(4);
+                } else {
+                    Nodo ultimo=raiz.ant;    
+                    raiz = raiz.sig;
+                    ultimo.sig=raiz;
+                    raiz.ant=ultimo;
+                    this.actual= raiz;
+                    imprimir(1);
+                    imprimir(2);
+                    imprimir(3);
+                    imprimir(4);
+                } 
+            } else {
+                Nodo reco = raiz;
+                for (int f = 1 ; f <= pos - 1 ; f++)
+                    reco = reco.sig;
+                Nodo anterior = reco.ant;
+                reco=reco.sig;
+                anterior.sig=reco;
+                reco.ant=anterior;
+            }
+        }
+    }
+    public void reproducir() throws BasicPlayerException
+    {
+        if(conta==0)
+        {
+            String dato = this.actual.info;//a esta variable le agrega el string
+            repro.loadFile(dato);//llama a este metodo
+            repro.play();//lo reproduce
+            conta= conta + 1;
+        }
+        else if(conta==1)
+        {
+            conta= conta - 1;
+            repro.pause();
+        }
+        
+        
+    }
+    public void reproducirSiguente() throws BasicPlayerException//reproduce el siguiente
+    {
+        repro.stop();//detiene la cancion
+        this.actual=this.actual.sig;//this.actual va a ser this.actual.sig
+        String dato = this.actual.info;//al dato le agrega actual
+        repro.loadFile(dato);//carga el dato
+        repro.play();//reproduce
+        
+    }
+    public void reproducirAnterior() throws BasicPlayerException//Reproduce el anterior
+    {
+        repro.stop();//Primero tiene que detener la canción que se esta reproduciendo
+        this.actual=this.actual.ant;//a this.actual le agrega this.actual.ant que me da la anterior
+        String dato = this.actual.info;//el dato va a ser el que tenemos reproduciendo ahora, el actual
+        repro.loadFile(dato);//carga el dato
+        repro.play();//lo reproduce
+        
+    }
+    public void pausa() throws BasicPlayerException //Metodo para pausar
+    {
+        repro.pause();//llama al metodo pausa
+        conta=0;
+    }
+    public void detener()//metodo para detener
+    {
+        repro.stop();//la detiene mediante el metodo stop
+        actual=raiz;//actual va a tener el valor de raiz
+        conta=0;
+    }
+       
+        
+        
+        
+        
+            
+            
+        
+    }
+    
 }
+
+
+
+
+
