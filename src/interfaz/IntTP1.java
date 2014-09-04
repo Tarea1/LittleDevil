@@ -571,7 +571,16 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     }//GEN-LAST:event_BotonDetenerActionPerformed
 
     private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
-        // TODO add your handling code here:
+        int entero= Integer.parseInt(jTextField2.getText());
+        try {
+            reproducir.borrar(entero);
+        } catch (IOException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TagException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BotonEliminarActionPerformed
 
     private void BotonPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausarActionPerformed
