@@ -1,4 +1,4 @@
-/*
+/**
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -480,23 +480,28 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Primero creamos un objeto de JFileChooser
+     * De dlg llamamos al objeto setFileFilter
+     * Se va a abrir la ventana de dialogo para elegir la cancion
+     * El metodo reproducir. insertarUltimoe
+     * es de la clase Nodo, agrega la canción al último lugra, 
+     * el parametro archivo se refiere a la canción
+     * @param evt 
+     */
     private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
-        //Creamos un objeto de JFileChooser
+        
         JFileChooser dlg = new JFileChooser();
-        //De este objeto llamamos al objeto setFileFilter
         dlg.setFileFilter(filter);
-        //Se va a abrir la ventana de dialogo para elegir la cancion
+        
         int opcion= dlg.showOpenDialog(this);
-        //Si hacemos click en abrir 
+         
         if(opcion==JFileChooser.APPROVE_OPTION){
-            //Obtener nombre del archivo que hemos seleccionado
-            String file = dlg.getSelectedFile().getPath();//path es para obtener el nombre
-            //Obtener la direccion donde se guardara la cancion
+            String file = dlg.getSelectedFile().getPath();
             String archivo = dlg.getSelectedFile().toString();
             
             try {
-                reproducir.insertarUltimo(archivo);//este metodo es de la clase Nodo, agrega la canción al último lugra, el parametro archivo se refiere a la canción
+                reproducir.insertarUltimo(archivo);
             } catch (IOException ex) {
                 Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
             } catch (TagException ex) {
@@ -540,10 +545,14 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void BotonReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReproducirActionPerformed
-        //este boton es el encargado de reproducir en la interfaz
+        /**
+         * El BotonReproducir es el que permite reproducir
+         */
         
         try {
-            reproducir.reproducir();//esto permite darle click al botón de reproducir y que nos reproduzca
+            reproducir.reproducir();/**reproducir.reproducir permite darle click al botón de reproducir y que nos reproduzca
+             *
+             */
         } catch (BasicPlayerException ex) {
             Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -554,7 +563,10 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     }//GEN-LAST:event_BotonReproducirActionPerformed
 
     private void BotonDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDetenerActionPerformed
-        reproducir.detener();//esta es una llamada a un metodo el cual detiene la cancion
+        reproducir.detener();
+    /**
+     * En botonDetener llamamos a un metodo el cual detiene la cancion
+     */
     }//GEN-LAST:event_BotonDetenerActionPerformed
 
     private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
@@ -702,17 +714,26 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
-public class LD//Creamos la clase LD
+    
+    
+/**
+ * Creamos la clase LD
+ * Y dentro la clase metadatos
+ */   
+public class LD
 {
-    public class Metadatos {//dentro creamos la clase metadatos
+    public class Metadatos {
+        /**
+         * Cada una de estas variables son creadas para almacenar todos los diferente datos
+         */
 
         AbstractID3v2 id3;
-        String artist;//Inicia la variable artist
-        String song;//Inicia la variable song
-        String album;//Inicia la variable album
-        String genre;//Inicia la variable genre
-        int duration;//Inicia la variable duration
-        int songSize;//Inicia la variable songSize
+        String artist; 
+        String song;
+        String album;
+        String genre;
+        int duration;
+        int songSize;
 
         public void Metadatos(String ruta) throws IOException, TagException { //Constructor de la clase Metadatos
        
@@ -721,30 +742,53 @@ public class LD//Creamos la clase LD
 //            Metadatos d = new Metadatos();//Crea un nuevo objeto de la clase Metadatos
  //           d.Metadatos(id3); //Inicia el constructor de la clase Metadatos con el objeto creado anteriormene            
         }
-
-        public String getArtist() { //Metodo para obtener el artista de la cancion
+        /**
+         *Metodo para obtener el artista de la cancion
+         * @return 
+         */
+        public String getArtist() { 
             this.artist = id3.getLeadArtist();
-            return this.artist; //Imprime el artista de la cancion
+            return this.artist; 
         }
+        /**
+         * Metodo para obtener el nombre de la cancion
+         * @return 
+         */
 
-        public String getSong() { //Metodo para obtener el nombre de la cancion
+        public String getSong() { 
             this.song = id3.getSongTitle();
-            return song; //Imprime el nombre de la cancion
+            return song; 
         }
+        /**
+         * Metodo para obtener el Album de la cancion
+         * @return 
+         */
 
-        public String getAlbum() { //Meodo para obtener el Ã¡lbum de la cancion
+        public String getAlbum() { 
             this.album = id3.getAlbumTitle();
-            return album; //Imprime el Allbum de la cancion
+            return album; 
         }
+        
+        /**
+         * Metodo para obtener el genero de la cancion
+         * @return 
+         */
 
-        public String getGenre() { //Metodo para obtener el genero de la cancion
+        public String getGenre() { 
             this.genre = id3.getSongGenre();
-            return genre; //Imprime el genero de la cancion
+            return genre; 
         }
+        /**
+         * Metodo para obtener la duracion de la cancion
+         * @param dato
+         * @return
+         * @throws UnsupportedAudioFileException
+         * @throws IOException 
+         */
 
         
-        private String getDuration(String dato) throws UnsupportedAudioFileException, IOException {//No s da la duración de la canción
-            File file = new File(dato);//para ello se necesita un nuevo archivo tipo File en donde se almacena el dato
+        private String getDuration(String dato) throws UnsupportedAudioFileException, IOException {
+            File file = new File(dato);
             AudioFileFormat fileFormat = AudioSystem.getAudioFileFormat(file);
             if (fileFormat instanceof TAudioFileFormat) {
                 Map<?, ?> properties = ((TAudioFileFormat) fileFormat).properties();
@@ -776,15 +820,16 @@ public class LD//Creamos la clase LD
             id3.setSongGenre(songGenre);
         }
     }
+    
     public abstract class Reproductor implements BasicPlayerListener 
 {
     private final BasicPlayer basicPlayer;
     private double bytesLength;
 
     /**
-     *
+     *Constructor
      */
-    public Reproductor() throws BasicPlayerException //constructor
+    public Reproductor() throws BasicPlayerException 
     {
         basicPlayer = new BasicPlayer();//crea un objeto tipo BasicPlayer
             basicPlayer.addBasicPlayerListener((BasicPlayerListener) this);//Se agrega 
