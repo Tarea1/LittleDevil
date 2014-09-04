@@ -1105,13 +1105,15 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
             String dato = this.actual.info;//a esta variable le agrega el string
             repro.loadFile(dato);//llama a este metodo
             repro.play();//lo reproduce
-            conta= conta + 1;
+            conta= 1;
         }
         else if(conta==1)
         {
-            conta= conta - 1;
+            conta= 0;
             repro.pause();
         }
+       
+        
         
         
     }
@@ -1155,8 +1157,6 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
             
         
     }
-   /** public void run(){
-        Thread.sleep(1000);
-    */
+   
     }
 
