@@ -743,8 +743,7 @@ public class LD
         String album;
         String genre;
         int duration;
-        int songSize;
-
+        
         public void Metadatos(String ruta) throws IOException, TagException { //Constructor de la clase Metadatos
        
             MP3File mp3 = new MP3File(ruta); //Crea un nuevo objeto llamando una clase de la libreria
@@ -774,6 +773,24 @@ public class LD
          * @return 
          */
 
+        public int getSongSize(String dato) throws UnsupportedAudioFileException, IOException
+        {
+            File file = new File(dato);
+            AudioFileFormat fileFormat = AudioSystem.getAudioFileFormat(file);
+            if (fileFormat instanceof TAudioFileFormat) {
+                Map<?, ?> properties = ((TAudioFileFormat) fileFormat).properties();
+                String key = "duration";
+                Long microseconds = (Long) properties.get(key);
+                int mili = (int) (microseconds / 1000);
+                int sec = (mili / 1000);
+                               
+                return sec;
+            } 
+            else 
+            {
+                throw new UnsupportedAudioFileException();
+            }
+        }
         public String getAlbum() { 
             this.album = id3.getAlbumTitle();
             return album; 
