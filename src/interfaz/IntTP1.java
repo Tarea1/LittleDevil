@@ -5,7 +5,7 @@
  */
 
 package interfaz;
-// hola
+
 import interfaz.IntTP1.LD.Reproductor;
 import java.io.File;
 import java.io.IOException;
