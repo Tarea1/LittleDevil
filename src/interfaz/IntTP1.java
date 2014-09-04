@@ -44,6 +44,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         
         initComponents();
         rutacancion="";
+        Thread hola = null;
     }
    
 
@@ -1119,6 +1120,8 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
         String dato = this.actual.info;//el dato va a ser el que tenemos reproduciendo ahora, el actual
         repro.loadFile(dato);//carga el dato
         repro.play();//lo reproduce
+        Thread hola = new Thread();
+        hola.start();
         
     }
     public void pausa() throws BasicPlayerException //Metodo para pausar
@@ -1133,7 +1136,7 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
         conta=0;
     }
        
-        
+        //hols
         
         
         
@@ -1141,10 +1144,8 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
             
         
     }
-    
-}
-
-
-
-
+   /** public void run(){
+        Thread.sleep(1000);
+    */
+    }
 
