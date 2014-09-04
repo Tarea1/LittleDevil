@@ -44,7 +44,6 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         
         initComponents();
         rutacancion="";
-        Thread hola = null;
         //mkm
     }
    
@@ -920,9 +919,11 @@ public class LD
     private Nodo raiz;//inicia la variable Raiz
     private Nodo actual;//Inicia la variable actual
     private Nodo reco;
+    Thread hilo;
     
     public LD ()throws BasicPlayerException//nuevo constructor
     {
+        this.hilo = null;
         this.metda = new Metadatos (); //inicia con esta variables
         this.repro = new Reproductor() {};//inicia con esta variable
         raiz=null;//raiz es null
