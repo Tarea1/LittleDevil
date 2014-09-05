@@ -287,7 +287,7 @@
                               <Component id="jButtonBuquedaAvan" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -311,7 +311,7 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane8" pref="325" max="32767" attributes="0"/>
+                      <Component id="jScrollPane8" pref="327" max="32767" attributes="0"/>
                       <Component id="jScrollPane10" max="32767" attributes="0"/>
                       <Component id="jScrollPane9" alignment="0" max="32767" attributes="0"/>
                       <Component id="jScrollPane11" alignment="0" max="32767" attributes="0"/>
@@ -359,7 +359,7 @@
               <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Volver inicio"/>
           </Properties>
@@ -425,7 +425,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DejaVu Serif Condensed" size="18" style="0"/>
+                  <Font name="Maiandra GD" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -436,7 +436,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DejaVu Serif Condensed" size="18" style="0"/>
+                  <Font name="Maiandra GD" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -447,7 +447,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DejaVu Serif Condensed" size="18" style="0"/>
+                  <Font name="Maiandra GD" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -458,7 +458,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DejaVu Serif Condensed" size="18" style="0"/>
+                  <Font name="Maiandra GD" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -469,7 +469,7 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="DejaVu Serif Condensed" size="18" style="0"/>
+                  <Font name="Maiandra GD" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -505,7 +505,7 @@
               <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
@@ -606,7 +606,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="18" style="0"/>
+              <Font name="Maiandra GD" size="18" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -617,10 +617,10 @@
         <Component class="javax.swing.JCheckBox" name="BuscarCancion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fe" green="fe" red="fe" type="rgb"/>
+              <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -634,10 +634,10 @@
         <Component class="javax.swing.JCheckBox" name="BuscarArtista">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fe" green="fe" red="fe" type="rgb"/>
+              <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fb" green="fb" red="fd" type="rgb"/>
@@ -651,10 +651,10 @@
         <Component class="javax.swing.JCheckBox" name="BuscarAlbum">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fc" green="fc" red="fc" type="rgb"/>
+              <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -665,10 +665,10 @@
         <Component class="javax.swing.JCheckBox" name="BuscarGenero">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fe" green="fe" red="fe" type="rgb"/>
+              <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -682,7 +682,7 @@
               <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
@@ -701,7 +701,7 @@
               <Color blue="4" green="4" red="91" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="15" style="0"/>
+              <Font name="Maiandra GD" size="15" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
@@ -712,7 +712,7 @@
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DejaVu Serif" size="24" style="3"/>
+              <Font name="Maiandra GD" size="24" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b" green="b" red="b" type="rgb"/>
