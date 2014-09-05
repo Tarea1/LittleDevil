@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package interfaz;
+package interfaz;//sja
 
 import interfaz.IntTP1.LD.Reproductor;
 import java.io.File;
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JCheckBox;//Librería para la selección de la imagen
+import javax.swing.JCheckBox;//Librería para la selección de la imagen dsjdjs
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -68,10 +68,6 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         jFrame5 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         BotonAnterior = new javax.swing.JButton();
-        BotonReproducir = new javax.swing.JButton();
-        BotonSiguiente = new javax.swing.JButton();
-        BotonDetener = new javax.swing.JButton();
-        BotonPausar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -98,7 +94,10 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         BuscarGenero = new javax.swing.JCheckBox();
         BotonActualizar = new javax.swing.JButton();
         BusquedaAvanzada = new javax.swing.JTextField();
-        BotonBuscar = new javax.swing.JButton();
+        BotonDetener = new javax.swing.JButton();
+        BotonSiguiente = new javax.swing.JButton();
+        BotonReproducir = new javax.swing.JButton();
+        BotonPausar = new javax.swing.JButton();
 
         jTextArea1.setBackground(new java.awt.Color(0, 102, 153));
         jTextArea1.setColumns(20);
@@ -200,34 +199,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 BotonAnteriorActionPerformed(evt);
             }
         });
-
-        BotonReproducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/diablo.gif"))); // NOI18N
-        BotonReproducir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonReproducirActionPerformed(evt);
-            }
-        });
-
-        BotonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/sig2.jpg"))); // NOI18N
-        BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSiguienteActionPerformed(evt);
-            }
-        });
-
-        BotonDetener.setText("Volver inicio");
-        BotonDetener.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonDetenerActionPerformed(evt);
-            }
-        });
-
-        BotonPausar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/detener.jpg"))); // NOI18N
-        BotonPausar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonPausarActionPerformed(evt);
-            }
-        });
+        jPanel1.add(BotonAnterior);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 153));
 
@@ -255,9 +227,9 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(170, 170, 170)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(185, 185, 185)
+                .addGap(207, 207, 207)
                 .addComponent(jLabel4)
                 .addGap(206, 206, 206)
                 .addComponent(jLabel5)
@@ -266,7 +238,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(52, 52, 52)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -276,12 +248,15 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanel2);
+
         BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/agregar.jpg"))); // NOI18N
         BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregarActionPerformed(evt);
             }
         });
+        jPanel1.add(BotonAgregar);
 
         BotonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/borrar.jpg"))); // NOI18N
         BotonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +264,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 BotonEliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(BotonEliminar);
 
         BotonModificar.setText("Modificar");
         BotonModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -296,12 +272,14 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 BotonModificarActionPerformed(evt);
             }
         });
+        jPanel1.add(BotonModificar);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField2);
 
         TxtArtista.setEditable(false);
         TxtArtista.setColumns(20);
@@ -309,11 +287,15 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         TxtArtista.setRows(5);
         jScrollPane8.setViewportView(TxtArtista);
 
+        jPanel1.add(jScrollPane8);
+
         TxtAlbum.setEditable(false);
         TxtAlbum.setColumns(20);
         TxtAlbum.setLineWrap(true);
         TxtAlbum.setRows(5);
         jScrollPane9.setViewportView(TxtAlbum);
+
+        jPanel1.add(jScrollPane9);
 
         TxtCancion.setEditable(false);
         TxtCancion.setColumns(20);
@@ -321,17 +303,23 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         TxtCancion.setRows(5);
         jScrollPane10.setViewportView(TxtCancion);
 
+        jPanel1.add(jScrollPane10);
+
         TxtGenero.setEditable(false);
         TxtGenero.setColumns(20);
         TxtGenero.setLineWrap(true);
         TxtGenero.setRows(5);
         jScrollPane11.setViewportView(TxtGenero);
 
+        jPanel1.add(jScrollPane11);
+
         TxtDuracion.setEditable(false);
         TxtDuracion.setColumns(20);
         TxtDuracion.setLineWrap(true);
         TxtDuracion.setRows(5);
         jScrollPane12.setViewportView(TxtDuracion);
+
+        jPanel1.add(jScrollPane12);
 
         BuscarCancion.setBackground(new java.awt.Color(153, 204, 255));
         BuscarCancion.setText("Canción");
@@ -340,6 +328,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 BuscarCancionActionPerformed(evt);
             }
         });
+        jPanel1.add(BuscarCancion);
 
         BuscarArtista.setBackground(new java.awt.Color(153, 204, 255));
         BuscarArtista.setText("Artista");
@@ -348,12 +337,15 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 BuscarArtistaActionPerformed(evt);
             }
         });
+        jPanel1.add(BuscarArtista);
 
         BuscarAlbum.setBackground(new java.awt.Color(153, 204, 255));
         BuscarAlbum.setText("Álbum");
+        jPanel1.add(BuscarAlbum);
 
         BuscarGenero.setBackground(new java.awt.Color(153, 204, 255));
         BuscarGenero.setText("Género");
+        jPanel1.add(BuscarGenero);
 
         BotonActualizar.setText("Actualizar");
         BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -361,121 +353,59 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 BotonActualizarActionPerformed(evt);
             }
         });
+        jPanel1.add(BotonActualizar);
 
         BusquedaAvanzada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BusquedaAvanzadaActionPerformed(evt);
             }
         });
+        jPanel1.add(BusquedaAvanzada);
 
-        BotonBuscar.setText("Buscar");
+        BotonDetener.setText("Volver inicio");
+        BotonDetener.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonDetenerActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonDetener);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BotonModificar)
-                        .addGap(8, 8, 8)
-                        .addComponent(BotonDetener)
-                        .addGap(8, 8, 8)
-                        .addComponent(BotonActualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonPausar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(BotonAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonReproducir)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BuscarCancion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BuscarArtista)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BuscarAlbum))
-                            .addComponent(BotonBuscar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BuscarGenero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 49, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(BotonBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BuscarCancion)
-                            .addComponent(BuscarArtista)
-                            .addComponent(BuscarAlbum)
-                            .addComponent(BuscarGenero)
-                            .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotonReproducir)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(BotonModificar)
-                                .addComponent(BotonDetener)
-                                .addComponent(BotonActualizar))
-                            .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonPausar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonSiguiente)
-                            .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
-                    .addComponent(jScrollPane10)
-                    .addComponent(jScrollPane9)
-                    .addComponent(jScrollPane11)
-                    .addComponent(jScrollPane12))
-                .addContainerGap())
-        );
+        BotonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/sig2.jpg"))); // NOI18N
+        BotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSiguienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonSiguiente);
+
+        BotonReproducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/diablo.gif"))); // NOI18N
+        BotonReproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonReproducirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonReproducir);
+
+        BotonPausar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/detener.jpg"))); // NOI18N
+        BotonPausar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPausarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonPausar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
         );
 
         pack();
@@ -581,7 +511,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BotonEliminarActionPerformed
-
+//sdhjskd
     private void BotonPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausarActionPerformed
         try {
             reproducir.pausa();//esta es una llamada a un metodo el cual pausa
@@ -635,8 +565,9 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             TxtAlbum.setText(album);
             TxtGenero.setText(genero);
             TxtDuracion.setText(duracion);
+            }    
     }//GEN-LAST:event_BotonActualizarActionPerformed
-    }
+  
     public static void main(String args[]) {//es el main
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -677,7 +608,6 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar;
     private javax.swing.JButton BotonAnterior;
-    private javax.swing.JButton BotonBuscar;
     private javax.swing.JButton BotonDetener;
     private javax.swing.JButton BotonEliminar;
     private javax.swing.JButton BotonModificar;
