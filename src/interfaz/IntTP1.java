@@ -18,7 +18,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JCheckBox;//Librería para la selección de la imagen
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;//asas
 import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerEvent;
