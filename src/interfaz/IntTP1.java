@@ -386,7 +386,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Maiandra GD", 3, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("DejaVu Serif", 3, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(11, 11, 11));
         jLabel7.setText("LITTLE DEVIL BY DANY lml");
 
