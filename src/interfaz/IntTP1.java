@@ -91,13 +91,13 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         TxtGenero = new javax.swing.JTextArea();
         jScrollPane12 = new javax.swing.JScrollPane();
         TxtDuracion = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
         BuscarCancion = new javax.swing.JCheckBox();
         BuscarArtista = new javax.swing.JCheckBox();
         BuscarAlbum = new javax.swing.JCheckBox();
         BuscarGenero = new javax.swing.JCheckBox();
         BotonActualizar = new javax.swing.JButton();
         BusquedaAvanzada = new javax.swing.JTextField();
+        BotonBuscar = new javax.swing.JButton();
 
         jTextArea1.setBackground(new java.awt.Color(0, 102, 153));
         jTextArea1.setColumns(20);
@@ -332,9 +332,6 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         TxtDuracion.setRows(5);
         jScrollPane12.setViewportView(TxtDuracion);
 
-        jLabel6.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
-        jLabel6.setText("Buscar");
-
         BuscarCancion.setBackground(new java.awt.Color(153, 204, 255));
         BuscarCancion.setText("Canción");
         BuscarCancion.addActionListener(new java.awt.event.ActionListener() {
@@ -370,6 +367,8 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
+        BotonBuscar.setText("Buscar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -398,20 +397,20 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                         .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(BuscarCancion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(BuscarArtista)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BuscarAlbum)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BuscarGenero)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 46, Short.MAX_VALUE)))
+                                .addComponent(BuscarAlbum))
+                            .addComponent(BotonBuscar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BuscarGenero)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 49, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -431,8 +430,8 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel6)
+                        .addGap(15, 15, 15)
+                        .addComponent(BotonBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BuscarCancion)
@@ -627,7 +626,6 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             TxtGenero.setText(genero);
             TxtDuracion.setText(duracion);
     }//GEN-LAST:event_BotonActualizarActionPerformed
-
     }
     public static void main(String args[]) {//es el main
         /* Set the Nimbus look and feel */
@@ -669,6 +667,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     private javax.swing.JButton BotonActualizar;
     private javax.swing.JButton BotonAgregar;
     private javax.swing.JButton BotonAnterior;
+    private javax.swing.JButton BotonBuscar;
     private javax.swing.JButton BotonDetener;
     private javax.swing.JButton BotonEliminar;
     private javax.swing.JButton BotonModificar;
@@ -698,7 +697,6 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JList jList3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -831,15 +829,22 @@ public class LD
      */
     public Reproductor() throws BasicPlayerException 
     {
-        basicPlayer = new BasicPlayer();//crea un objeto tipo BasicPlayer
-            basicPlayer.addBasicPlayerListener((BasicPlayerListener) this);//Se agrega 
-        basicPlayer.play();//reproduce
+        /**
+         * crea un objeto tipo BasicPlayer
+         * y lo reproduce con el .play
+         */
+        basicPlayer = new BasicPlayer();
+            basicPlayer.addBasicPlayerListener((BasicPlayerListener) this); 
+        basicPlayer.play();
     }
+    /**
+     * Crea metodo play
+     */
 
-    public void play() //crea metodo play
+    public void play() 
     {
         try {
-        basicPlayer.play();//al objeto creado anteriormente le aplica esta opción
+        basicPlayer.play();
         }
         catch (BasicPlayerException e) 
         {
