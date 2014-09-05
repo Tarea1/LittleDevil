@@ -534,7 +534,111 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void BusquedaAvanzadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaAvanzadaActionPerformed
-        
+                // TODO add your handling code here:
+        String nombre = "";
+        String artista="";
+        String genero="";
+        String album="";
+        String duracion="";
+        String variable = BusquedaAvanzada.getText();
+        int cant = reproducir.cantidad();
+        int i = 0;
+        reproducir.reco = reproducir.raiz;
+            if (BuscarArtista.isSelected()){
+            while(i < cant){
+                try {
+                    if (variable == null ? reproducir.retornar(2, reproducir.reco) == null : variable.equals(reproducir.retornar(2, reproducir.reco))){
+                            nombre = nombre + reproducir.retornar(4, reproducir.reco)+"\n";
+                            artista = artista + reproducir.retornar(2, reproducir.reco)+"\n";
+                            album = album + reproducir.retornar(1, reproducir.reco)+"\n";
+                            genero = genero + reproducir.retornar(3, reproducir.reco)+"\n";
+                            duracion = duracion + reproducir.retornar(5, reproducir.reco)+"\n";
+                
+                
+                    }
+                    reproducir.reco=reproducir.reco.sig;
+                    i++;
+                } catch (IOException | UnsupportedAudioFileException | TagException ex) {
+                    Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            TxtCancion.setText(nombre);
+                        TxtArtista.setText(artista);
+                        TxtAlbum.setText(album);
+                        TxtGenero.setText(genero);
+                        TxtDuracion.setText(duracion);
+            }
+            if (BuscarCancion.isSelected()){
+            while(i < cant){
+                try {
+                    if (variable == null ? reproducir.retornar(4, reproducir.reco) == null : variable.equals(reproducir.retornar(4, reproducir.reco))){
+                            nombre = nombre + reproducir.retornar(4, reproducir.reco)+"\n";
+                            artista = artista + reproducir.retornar(2, reproducir.reco)+"\n";
+                            album = album + reproducir.retornar(1, reproducir.reco)+"\n";
+                            genero = genero + reproducir.retornar(3, reproducir.reco)+"\n";
+                            duracion = duracion + reproducir.retornar(5, reproducir.reco)+"\n";
+                
+                
+                    }
+                    reproducir.reco=reproducir.reco.sig;
+                    i++;
+                } catch (IOException | UnsupportedAudioFileException | TagException ex) {
+                    Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            TxtCancion.setText(nombre);
+                        TxtArtista.setText(artista);
+                        TxtAlbum.setText(album);
+                        TxtGenero.setText(genero);
+                        TxtDuracion.setText(duracion);
+            }
+            if (BuscarAlbum.isSelected()){
+            while(i < cant){
+                try {
+                    if (variable == null ? reproducir.retornar(1, reproducir.reco) == null : variable.equals(reproducir.retornar(1, reproducir.reco))){
+                            nombre = nombre + reproducir.retornar(4, reproducir.reco)+"\n";
+                            artista = artista + reproducir.retornar(2, reproducir.reco)+"\n";
+                            album = album + reproducir.retornar(1, reproducir.reco)+"\n";
+                            genero = genero + reproducir.retornar(3, reproducir.reco)+"\n";
+                            duracion = duracion + reproducir.retornar(5, reproducir.reco)+"\n";
+                
+                
+                    }
+                    reproducir.reco=reproducir.reco.sig;
+                    i++;
+                } catch (IOException | UnsupportedAudioFileException | TagException ex) {
+                    Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            TxtCancion.setText(nombre);
+                        TxtArtista.setText(artista);
+                        TxtAlbum.setText(album);
+                        TxtGenero.setText(genero);
+                        TxtDuracion.setText(duracion);
+            }
+            if (BuscarGenero.isSelected()){
+            while(i < cant){
+                try {
+                    if (variable == null ? reproducir.retornar(3, reproducir.reco) == null : variable.equals(reproducir.retornar(3, reproducir.reco))){
+                            nombre = nombre + reproducir.retornar(4, reproducir.reco)+"\n";
+                            artista = artista + reproducir.retornar(2, reproducir.reco)+"\n";
+                            album = album + reproducir.retornar(1, reproducir.reco)+"\n";
+                            genero = genero + reproducir.retornar(3, reproducir.reco)+"\n";
+                            duracion = duracion + reproducir.retornar(5, reproducir.reco)+"\n";               
+                    }
+                    reproducir.reco=reproducir.reco.sig;
+                    i++;
+                } catch (IOException | UnsupportedAudioFileException | TagException ex) {
+                    Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            TxtCancion.setText(nombre);
+                        TxtArtista.setText(artista);
+                        TxtAlbum.setText(album);
+                        TxtGenero.setText(genero);
+                        TxtDuracion.setText(duracion);
+            }
+    
     }//GEN-LAST:event_BusquedaAvanzadaActionPerformed
 
     private void BotonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarActionPerformed
