@@ -217,6 +217,8 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
+        BotonDetener.setBackground(new java.awt.Color(145, 4, 4));
+        BotonDetener.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
         BotonDetener.setText("Volver inicio");
         BotonDetener.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,23 +236,23 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         jPanel2.setBackground(new java.awt.Color(1, 1, 1));
         jPanel2.setForeground(new java.awt.Color(255, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Serif Condensed", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("Canción");
 
-        jLabel2.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DejaVu Serif Condensed", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Artista");
 
-        jLabel3.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("DejaVu Serif Condensed", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("Álbum");
 
-        jLabel4.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("DejaVu Serif Condensed", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("Género");
 
-        jLabel5.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("DejaVu Serif Condensed", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("Duración");
 
@@ -298,6 +300,8 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
+        BotonModificar.setBackground(new java.awt.Color(145, 4, 4));
+        BotonModificar.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
         BotonModificar.setText("Modificar");
         BotonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,10 +345,13 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         TxtDuracion.setRows(5);
         jScrollPane12.setViewportView(TxtDuracion);
 
-        jLabel6.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("DejaVu Serif", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("Buscar");
 
-        BuscarCancion.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarCancion.setBackground(new java.awt.Color(254, 254, 254));
+        BuscarCancion.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
+        BuscarCancion.setForeground(new java.awt.Color(254, 254, 254));
         BuscarCancion.setText("Canción");
         BuscarCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,7 +359,9 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
-        BuscarArtista.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarArtista.setBackground(new java.awt.Color(254, 254, 254));
+        BuscarArtista.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
+        BuscarArtista.setForeground(new java.awt.Color(253, 251, 251));
         BuscarArtista.setText("Artista");
         BuscarArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,12 +369,18 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
-        BuscarAlbum.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarAlbum.setBackground(new java.awt.Color(252, 252, 252));
+        BuscarAlbum.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
+        BuscarAlbum.setForeground(new java.awt.Color(254, 254, 254));
         BuscarAlbum.setText("Álbum");
 
-        BuscarGenero.setBackground(new java.awt.Color(153, 204, 255));
+        BuscarGenero.setBackground(new java.awt.Color(254, 254, 254));
+        BuscarGenero.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
+        BuscarGenero.setForeground(new java.awt.Color(254, 254, 254));
         BuscarGenero.setText("Género");
 
+        BotonActualizar.setBackground(new java.awt.Color(145, 4, 4));
+        BotonActualizar.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
         BotonActualizar.setText("Actualizar");
         BotonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,6 +394,8 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
+        jButtonBuquedaAvan.setBackground(new java.awt.Color(145, 4, 4));
+        jButtonBuquedaAvan.setFont(new java.awt.Font("DejaVu Serif", 0, 15)); // NOI18N
         jButtonBuquedaAvan.setText("Buscar");
         jButtonBuquedaAvan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -399,6 +416,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(BotonModificar)
                                 .addGap(8, 8, 8)
@@ -417,10 +435,9 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                                 .addComponent(BotonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(107, 107, 107)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -467,8 +484,9 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonBuquedaAvan))
-                        .addGap(0, 19, Short.MAX_VALUE))
+                            .addComponent(jButtonBuquedaAvan)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 20, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -483,12 +501,11 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                             .addComponent(BotonPausar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotonAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotonSiguiente)
-                            .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                     .addComponent(jScrollPane10)
                     .addComponent(jScrollPane9)
                     .addComponent(jScrollPane11)
