@@ -744,6 +744,7 @@ public class LD
         String genre;
         int duration;
         
+
         public void Metadatos(String ruta) throws IOException, TagException { //Constructor de la clase Metadatos
        
             MP3File mp3 = new MP3File(ruta); //Crea un nuevo objeto llamando una clase de la libreria
@@ -773,24 +774,6 @@ public class LD
          * @return 
          */
 
-        public int getSongSize(String dato) throws UnsupportedAudioFileException, IOException
-        {
-            File file = new File(dato);
-            AudioFileFormat fileFormat = AudioSystem.getAudioFileFormat(file);
-            if (fileFormat instanceof TAudioFileFormat) {
-                Map<?, ?> properties = ((TAudioFileFormat) fileFormat).properties();
-                String key = "duration";
-                Long microseconds = (Long) properties.get(key);
-                int mili = (int) (microseconds / 1000);
-                int sec = (mili / 1000);
-                               
-                return sec;
-            } 
-            else 
-            {
-                throw new UnsupportedAudioFileException();
-            }
-        }
         public String getAlbum() { 
             this.album = id3.getAlbumTitle();
             return album; 
@@ -945,11 +928,11 @@ public class LD
     private Nodo raiz;//inicia la variable Raiz
     private Nodo actual;//Inicia la variable actual
     private Nodo reco;
-    Thread hilo;
+    
     
     public LD ()throws BasicPlayerException//nuevo constructor
     {
-        this.hilo = null;
+        
         this.metda = new Metadatos (); //inicia con esta variables
         this.repro = new Reproductor() {};//inicia con esta variable
         raiz=null;//raiz es null
@@ -1122,15 +1105,13 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
             String dato = this.actual.info;//a esta variable le agrega el string
             repro.loadFile(dato);//llama a este metodo
             repro.play();//lo reproduce
-            conta= 1;
+            conta= conta + 1;
         }
         else if(conta==1)
         {
             conta= 0;
             repro.pause();
         }
-       
-        
         
         
     }
@@ -1150,8 +1131,6 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
         String dato = this.actual.info;//el dato va a ser el que tenemos reproduciendo ahora, el actual
         repro.loadFile(dato);//carga el dato
         repro.play();//lo reproduce
-        Thread hola = new Thread();
-        hola.start();
         
     }
     public void pausa() throws BasicPlayerException //Metodo para pausar
@@ -1166,7 +1145,7 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
         conta=0;
     }
        
-        //hols
+    
         
         
         
@@ -1174,6 +1153,6 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
             
         
     }
-   
+  
     }
 
