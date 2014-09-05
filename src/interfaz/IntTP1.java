@@ -100,6 +100,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         BotonActualizar = new javax.swing.JButton();
         BusquedaAvanzada = new javax.swing.JTextField();
         jButtonBuquedaAvan = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         jTextArea1.setBackground(new java.awt.Color(0, 102, 153));
         jTextArea1.setColumns(20);
@@ -192,8 +193,8 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Little Devil\n");
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel1.setForeground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(249, 10, 10));
+        jPanel1.setForeground(new java.awt.Color(5, 12, 12));
 
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/anterior.png"))); // NOI18N
         BotonAnterior.addActionListener(new java.awt.event.ActionListener() {
@@ -230,21 +231,27 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel2.setBackground(new java.awt.Color(1, 1, 1));
+        jPanel2.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("Canción");
 
         jLabel2.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Artista");
 
         jLabel3.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("Álbum");
 
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("Género");
 
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("Duración");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -252,17 +259,17 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170)
+                .addGap(166, 166, 166)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(185, 185, 185)
-                .addComponent(jLabel4)
                 .addGap(206, 206, 206)
+                .addComponent(jLabel4)
+                .addGap(199, 199, 199)
                 .addComponent(jLabel5)
-                .addGap(186, 186, 186))
+                .addGap(93, 93, 93))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,6 +386,10 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(11, 11, 11));
+        jLabel7.setText("LITTLE DEVIL BY DANY lml");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -390,25 +401,28 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BotonModificar)
-                        .addGap(8, 8, 8)
-                        .addComponent(BotonDetener)
-                        .addGap(8, 8, 8)
-                        .addComponent(BotonActualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonPausar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(BotonAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonReproducir)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BotonModificar)
+                                .addGap(8, 8, 8)
+                                .addComponent(BotonDetener)
+                                .addGap(8, 8, 8)
+                                .addComponent(BotonActualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonPausar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(BotonAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonReproducir)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -456,9 +470,11 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BusquedaAvanzada, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonBuquedaAvan))
-                        .addGap(0, 10, Short.MAX_VALUE))
+                        .addGap(0, 19, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BotonReproducir)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -471,11 +487,10 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
                             .addComponent(BotonSiguiente)
                             .addComponent(BotonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                     .addComponent(jScrollPane10)
                     .addComponent(jScrollPane9)
                     .addComponent(jScrollPane11)
@@ -832,6 +847,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JList jList3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
