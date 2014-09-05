@@ -44,6 +44,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         
         initComponents();
         rutacancion="";
+        //mkm
     }
    
 
@@ -569,7 +570,16 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
     }//GEN-LAST:event_BotonDetenerActionPerformed
 
     private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
-        // TODO add your handling code here:
+        int entero= Integer.parseInt(jTextField2.getText());
+        try {
+            reproducir.borrar(entero);
+        } catch (IOException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TagException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(IntTP1.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BotonEliminarActionPerformed
 
     private void BotonPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPausarActionPerformed
@@ -731,7 +741,7 @@ public class LD
         String album;
         String genre;
         int duration;
-        int songSize;
+        
 
         public void Metadatos(String ruta) throws IOException, TagException { //Constructor de la clase Metadatos
        
@@ -924,8 +934,10 @@ public class LD
     private Nodo actual;//Inicia la variable actual
     private Nodo reco;
     
+    
     public LD ()throws BasicPlayerException//nuevo constructor
     {
+        
         this.metda = new Metadatos (); //inicia con esta variables
         this.repro = new Reproductor() {};//inicia con esta variable
         raiz=null;//raiz es null
@@ -1102,7 +1114,7 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
         }
         else if(conta==1)
         {
-            conta= conta - 1;
+            conta= 0;
             repro.pause();
         }
         
@@ -1138,7 +1150,7 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
         conta=0;
     }
        
-        
+    
         
         
         
@@ -1146,10 +1158,6 @@ public String retornar(int e,Nodo reco) throws IOException, UnsupportedAudioFile
             
         
     }
-    
-}
-
-
-
-
+  
+    }
 
