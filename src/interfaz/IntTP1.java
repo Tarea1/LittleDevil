@@ -193,7 +193,7 @@ public class IntTP1 extends javax.swing.JFrame {//Clase principal
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Little Devil\n");
 
-        jPanel1.setBackground(new java.awt.Color(249, 10, 10));
+        jPanel1.setBackground(new java.awt.Color(196, 10, 10));
         jPanel1.setForeground(new java.awt.Color(5, 12, 12));
 
         BotonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/anterior.png"))); // NOI18N
