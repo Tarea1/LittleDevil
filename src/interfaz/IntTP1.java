@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+// PRUEBA DEL NUEVO NETBEANS
 package interfaz;
 
 import interfaz.IntTP1.LD.Reproductor;
